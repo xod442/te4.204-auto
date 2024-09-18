@@ -59,7 +59,7 @@ def main(vsphere_ip,vsphere_user,vsphere_pass,datacenter,cluster,dvs_name):
     atexit.register(Disconnect, si)
 
     content = si.RetrieveContent()
-
+    datacenter = nic.get_obj(content, [vim.Datacenter], datacenter)
     cluster = nic.get_obj(content, [vim.ClusterComputeResource], cluster)
 
     network_folder = datacenter.networkFolder
